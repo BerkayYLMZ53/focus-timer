@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f1e9">
+  <title>Odak Zamanlayıcısı</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="timer.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="layout">
+    <header>
+      <h1>Odak Zamanlayıcısı</h1>
+      <p>Çalışma süreni ve molalarını takip et.</p>
+    </header>
+    <section class="clock" aria-labelledby="clock-heading">
+      <h2 id="clock-heading" class="sr-only">Zamanlayıcı</h2>
+      <div class="modes" role="group" aria-label="Zamanlayıcı modu">
+        <button type="button" data-mode="focus" aria-pressed="true">Odak</button>
+        <button type="button" data-mode="short" aria-pressed="false">Kısa mola</button>
+        <button type="button" data-mode="long" aria-pressed="false">Uzun mola</button>
+      </div>
+      <div class="dial" id="dial">
+        <div class="face">
+          <span id="mode-label">Odak</span>
+          <strong id="time" role="timer" aria-live="off">25:00</strong>
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" id="toggle" class="primary">Başlat</button>
+        <button type="button" id="reset" class="secondary">Sıfırla</button>
+      </div>
+      <p id="status" class="status" role="status"></p>
+    </section>
+    <aside class="sidebar" aria-label="Oturum ve süre ayarları">
+      <section class="today" aria-labelledby="today-heading">
+        <h2 id="today-heading">Bugün</h2>
+        <strong id="sessions">0</strong>
+        <p>Tamamlanan odak oturumu</p>
+      </section>
+      <section class="settings" aria-labelledby="settings-heading">
+        <h2 id="settings-heading">Süreler</h2>
+        <form id="settings">
+          <label>Odak <span><input name="focus" type="number" min="1" max="180" value="25" required> dk</span></label>
+          <label>Kısa mola <span><input name="short" type="number" min="1" max="180" value="5" required> dk</span></label>
+          <label>Uzun mola <span><input name="long" type="number" min="1" max="180" value="15" required> dk</span></label>
+          <button class="secondary" type="submit">Süreleri kaydet</button>
+        </form>
+      </section>
+    </aside>
+    <p id="storage-note" class="note" hidden>Tarayıcı depolaması kapalı. Zamanlayıcı bu sekmede çalışmaya devam eder.</p>
+  </main>
+</body>
+</html>
